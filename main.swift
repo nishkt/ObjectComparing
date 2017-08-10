@@ -1,4 +1,5 @@
 import Foundation
+
 class Friend : Comparable {
 	let name : String
 	let age : Int
@@ -26,11 +27,17 @@ func === (lhs: Friend, rhs: Friend) -> Bool {
 	return returnValue
 }
 
+// Declare a function that can take variadic parameters
+func printOutFriendNames(friends: Friend...)  {
+	for friend in friends {
+		print("\(friend.name) is \(friend.age) years old")
+	}
+}
+
 var friend1 = Friend(name: "Nishant", age: 24)
 var friend2 = Friend(name: "Monish", age: 22)
 
-print("\(friend1.name) is \(friend1.age) years old")
-print("\(friend2.name) is \(friend2.age) years old")
+printOutFriendNames(friends: friend1, friend2)
 
 if friend1 < friend2 {
 	print("\(friend1.name) is younger than \(friend2.name)")
